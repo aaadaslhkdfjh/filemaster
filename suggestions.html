@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>用户建议 - 文件处理大师</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><div class="logo-icon">📁</div><span>文件处理大师</span></a>
+    <ul class="nav-links"><li><a href="index.html">首页</a></li><li><a href="features.html">功能</a></li><li><a href="activity.html">🎁 内测活动</a></li><li><a href="suggestions.html" class="active">建议</a></li><li><a href="faq.html">帮助</a></li></ul>
+    <div class="nav-actions"><a href="login.html" class="btn-ghost">登录</a><a href="register.html" class="btn-primary">注册</a></div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>💡 用户建议</h1>
+  <p>你的建议让软件变得更好，被采纳的建议奖励7天会员</p>
+</div>
+
+<div class="page-content">
+
+  <!-- 提交建议 -->
+  <div class="suggestion-form">
+    <h3 style="margin-bottom:16px;font-size:18px;font-weight:700">提交新建议</h3>
+    <div class="form-group">
+      <label>你的邮箱（选填，方便联系你）</label>
+      <input type="email" id="s-email" placeholder="your@email.com" style="height:40px;border:1.5px solid #E5E7EB;border-radius:8px;padding:0 12px;font-size:14px;font-family:inherit;width:100%"/>
+    </div>
+    <div class="form-group" style="margin-top:12px">
+      <label>建议内容</label>
+      <textarea id="s-content" placeholder="描述你的建议，越详细越好..."></textarea>
+    </div>
+    <div id="s-error" style="color:#EF4444;font-size:13px;margin:8px 0;display:none"></div>
+    <div id="s-success" style="color:#10B981;font-size:13px;margin:8px 0;display:none"></div>
+    <button class="btn-primary" style="margin-top:12px" onclick="submitSuggestion()">提交建议</button>
+    <span style="font-size:12px;color:#9CA3AF;margin-left:12px">被采纳奖励7天会员</span>
+  </div>
+
+  <!-- 建议列表 -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <h3 style="font-size:18px;font-weight:700">所有建议</h3>
+    <span id="s-count" style="font-size:13px;color:#6B7280"></span>
+  </div>
+  <div id="suggestion-list" class="suggestion-list">
+    <div style="text-align:center;padding:40px;color:#9CA3AF">加载中...</div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <span>© 2026 AI灵感生成社 · 文件处理大师</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const API = 'http://182.92.155.25:5001';
+
+async function loadSuggestions(){
+  try{
+    var r = await fetch(API+'/api/suggestions');
+    var d = await r.json();
+    var list = document.getElementById('suggestion-list');
+    var count = document.getElementById('s-count');
+    if(d.code===200&&d.data&&d.data.length>0){
+      count.textContent = '共 '+d.data.length+' 条建议';
+      list.innerHTML = d.data.map(function(s){
+        return '<div class="suggestion-item">'+
+          '<div class="s-meta">'+
+            (s.email?'<span>'+s.email.replace(/(.{2}).+(@.+)/,'$1***$2')+'</span> · ':'匿名 · ')+
+            '<span>'+s.created_at+'</span>'+
+            (s.status==='adopted'?'<span style="background:#F0FDF4;color:#10B981;font-size:11px;padding:1px 8px;border-radius:4px;margin-left:8px">✅ 已采纳</span>':'')+
+          '</div>'+
+          '<div class="s-content">'+escHtml(s.content)+'</div>'+
+        '</div>';
+      }).join('');
+    }else{
+      list.innerHTML='<div style="text-align:center;padding:40px;color:#9CA3AF">暂无建议，来第一个提建议吧！</div>';
+    }
+  }catch(e){
+    document.getElementById('suggestion-list').innerHTML='<div style="text-align:center;padding:40px;color:#9CA3AF">加载失败，请刷新重试</div>';
+  }
+}
+
+async function submitSuggestion(){
+  var email = document.getElementById('s-email').value.trim();
+  var content = document.getElementById('s-content').value.trim();
+  var err = document.getElementById('s-error');
+  var suc = document.getElementById('s-success');
+  err.style.display='none';suc.style.display='none';
+
+  if(!content||content.length<10){err.textContent='建议内容至少10个字';err.style.display='block';return;}
+
+  try{
+    var r = await fetch(API+'/api/suggestions',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,content:content})
+    });
+    var d = await r.json();
+    if(d.code===200){
+      suc.textContent='提交成功！感谢你的建议 🎉';suc.style.display='block';
+      document.getElementById('s-content').value='';
+      document.getElementById('s-email').value='';
+      loadSuggestions();
+    }else{
+      err.textContent=d.msg||'提交失败';err.style.display='block';
+    }
+  }catch(e){err.textContent='网络连接失败';err.style.display='block';}
+}
+
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+loadSuggestions();
+</script>
+</body>
+</html>
