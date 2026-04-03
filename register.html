@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="style.css"/><link rel="icon" href="favicon.ico"/>
 </head>
 <body>
+<script src="auth.js"></script>
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="favicon.ico" class="logo-icon-img" alt="logo"/><span>文件处理大师</span></a>
@@ -100,9 +101,28 @@ async function doRegister(){
     });
     var d=await r.json();
     if(d.code===200){
-      suc.textContent='注册成功！请加入QQ群 1084088937 领取1个月会员奖励 🎉';
-      suc.style.display='block';
-      setTimeout(function(){window.location.href='login.html';},3000);
+      suc.textContent='注册成功！正在为你登录... 🎉';suc.style.display='block';
+      // 注册成功后自动登录
+      try{
+        var lr=await fetch(API+'/api/auth/login',{
+          method:'POST',headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({phone:email,password:pwd,device_id:'web'})
+        });
+        var ld=await lr.json();
+        if(ld.code===200){
+          localStorage.setItem('token',ld.data.token);
+          localStorage.setItem('nickname',ld.data.nickname||email);
+          localStorage.setItem('email',ld.data.phone);
+          setTimeout(function(){
+            suc.textContent='注册成功！请加入QQ群 1084088937 领取1个月会员 🎉';
+            setTimeout(function(){window.location.href=getRedirectUrl();},2000);
+          },500);
+        }else{
+          setTimeout(function(){window.location.href='login.html';},2000);
+        }
+      }catch(e){
+        setTimeout(function(){window.location.href='login.html';},2000);
+      }
     }else{
       err.textContent=d.msg||'注册失败';err.style.display='block';
     }

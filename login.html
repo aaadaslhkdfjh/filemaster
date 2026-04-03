@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="style.css"/><link rel="icon" href="favicon.ico"/>
 </head>
 <body>
+<script src="auth.js"></script>
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="favicon.ico" class="logo-icon-img" alt="logo"/><span>文件处理大师</span></a>
@@ -59,7 +60,7 @@ async function doLogin(){
       localStorage.setItem('token',d.data.token);
       localStorage.setItem('nickname',d.data.nickname||email);
       localStorage.setItem('email',d.data.phone);
-      window.location.href='index.html';
+      window.location.href = getRedirectUrl();
     }else{
       err.textContent=d.msg||'登录失败';err.style.display='block';
     }
