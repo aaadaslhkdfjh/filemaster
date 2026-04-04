@@ -4,141 +4,272 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>功能介绍 - 文件处理大师</title>
 <link rel="stylesheet" href="style.css"/><link rel="icon" href="favicon.ico"/>
+<style>
+.feat-group{margin-bottom:56px}
+.feat-group-title{font-size:13px;font-weight:700;color:var(--primary);letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.feat-group-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.new-badge{background:linear-gradient(135deg,#EF4444,#F97316);color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:700;letter-spacing:0}
+</style>
 </head>
 <body>
 <script src="auth.js"></script>
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="favicon.ico" class="logo-icon-img" alt="logo"/><span>文件处理大师</span></a>
-    <ul class="nav-links"><li><a href="index.html">首页</a></li><li><a href="features.html" class="active">功能</a></li><li><a href="activity.html">🎁 内测活动</a></li><li><a href="suggestions.html">建议</a></li><li><a href="faq.html">帮助</a></li></ul>
-    <div class="nav-actions"><a href="login.html" class="btn-ghost">登录</a><a href="register.html" class="btn-primary">注册</a></div>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="features.html" class="active">功能</a></li>
+      <li><a href="activity.html">🎁 内测活动</a></li>
+      <li><a href="suggestions.html">建议</a></li>
+      <li><a href="faq.html">帮助</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="login.html" class="btn-ghost">登录</a>
+      <a href="register.html" class="btn-primary">注册</a>
+    </div>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
   </div>
 </nav>
 
 <div class="page-hero">
   <h1>全部功能</h1>
-  <p>15+ 核心功能模块，覆盖日常所有文件处理场景</p>
+  <p>20+ 核心功能模块，覆盖日常所有文件处理场景，100% 本地处理</p>
 </div>
 
 <div class="page-content" style="max-width:1100px">
-  <div class="features-grid" style="grid-template-columns:repeat(3,1fr)">
 
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#EEF1FE">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4F6EF7" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+  <!-- 文件处理 -->
+  <div class="feat-group">
+    <div class="feat-group-title">文件处理</div>
+    <div class="features-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EEF1FE">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4F6EF7" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <h3>批量重命名</h3>
+        <p>前缀/后缀/序号/正则替换，可导入整个文件夹，多种排序方式，支持撤销操作。</p>
+        <div class="feature-tags"><span>文件夹导入</span><span>正则替换</span><span>撤销</span><span>多种排序</span></div>
       </div>
-      <h3>批量重命名</h3>
-      <p>支持前缀/后缀/序号/正则替换，可导入整个文件夹，多种排序方式，支持撤销操作。</p>
-      <div class="feature-tags"><span>文件夹导入</span><span>正则替换</span><span>撤销</span><span>多种排序</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#FFF7ED">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F0FDF4">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+        </div>
+        <h3>批量压缩</h3>
+        <p>图片/视频批量压缩，支持无损/清晰/极速三种模式，自动备份原文件。</p>
+        <div class="feature-tags"><span>无损模式</span><span>批量处理</span><span>自动备份</span></div>
       </div>
-      <h3>批量水印</h3>
-      <p>文字/Logo水印，支持视频动态水印（水印在视频上移动），防AI去除，批量随机化保护版权。</p>
-      <div class="feature-tags"><span>图片/视频</span><span>动态水印</span><span>防AI</span><span>随机化</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#F0FDF4">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F0F9FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h3>格式转换</h3>
+        <p>图片/视频格式互转，支持 JPG/PNG/WebP/BMP/MP4/MOV/AVI 等主流格式。</p>
+        <div class="feature-tags"><span>图片转换</span><span>视频转换</span><span>批量处理</span></div>
       </div>
-      <h3>批量压缩</h3>
-      <p>图片/视频批量压缩，支持无损/清晰/极速三种模式，自动备份原文件。</p>
-      <div class="feature-tags"><span>无损模式</span><span>批量处理</span><span>自动备份</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#F0F9FF">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#EEF1FE">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4F6EF7" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h3>压缩解压</h3>
+        <p>支持 ZIP/RAR/7Z 等主流格式，批量压缩解压，支持加密压缩包。</p>
+        <div class="feature-tags"><span>ZIP</span><span>RAR</span><span>7Z</span><span>加密</span></div>
       </div>
-      <h3>格式转换</h3>
-      <p>图片/视频格式互转，支持 JPG/PNG/WebP/BMP/MP4/MOV/AVI 等主流格式。</p>
-      <div class="feature-tags"><span>图片转换</span><span>视频转换</span><span>批量处理</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#FFF1F2">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFFBEB">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>二维码工具</h3>
+        <p>批量生成/识别二维码，支持自定义样式和颜色，导出高清图片。</p>
+        <div class="feature-tags"><span>批量生成</span><span>识别解码</span><span>自定义样式</span></div>
       </div>
-      <h3>PDF 全能处理</h3>
-      <p>PDF 合并、拆分、压缩、转 Word/图片，加密解密，提取文字，一站搞定。</p>
-      <div class="feature-tags"><span>合并拆分</span><span>加密解密</span><span>转Word</span><span>转图片</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#F0F9FF">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F0FDF4">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>文件查重</h3>
+        <p>MD5精确查重，快速找出重复文件，支持按大小/内容两种模式。</p>
+        <div class="feature-tags"><span>MD5精确</span><span>快速扫描</span><span>批量删除</span></div>
       </div>
-      <h3>文档处理</h3>
-      <p>Word/Excel/PPT 批量处理，格式转换，内容提取，轻松应对办公需求。</p>
-      <div class="feature-tags"><span>Word</span><span>Excel</span><span>PPT</span><span>格式转换</span></div>
     </div>
+  </div>
 
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#EEF1FE">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4F6EF7" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+  <!-- 水印 -->
+  <div class="feat-group">
+    <div class="feat-group-title">水印工具</div>
+    <div class="features-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF7ED">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3>批量图片水印</h3>
+        <p>文字/Logo水印，自定义位置/透明度/角度，防AI去除，批量随机化保护版权。</p>
+        <div class="feature-tags"><span>文字/Logo</span><span>防AI</span><span>随机化</span><span>批量</span></div>
       </div>
-      <h3>二维码工具</h3>
-      <p>批量生成/识别二维码，支持自定义样式和颜色，导出高清图片。</p>
-      <div class="feature-tags"><span>批量生成</span><span>识别解码</span><span>自定义样式</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#FDF4FF">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF7ED">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3>视频动态水印</h3>
+        <p>水印在视频画面上移动（左右/上下/对角线/弹跳），防截图盗用，实时进度显示。</p>
+        <div class="feature-tags"><span>动态移动</span><span>多种轨迹</span><span>防截图</span></div>
       </div>
-      <h3>安全工具</h3>
-      <p>文件加密/解密、安全粉碎（不可恢复）、文件查重、属性修改、元数据编辑。</p>
-      <div class="feature-tags"><span>加密解密</span><span>安全粉碎</span><span>查重</span><span>元数据</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#FFFBEB">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FDF4FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>图片/视频去水印 <span class="new-badge">NEW</span></h3>
+        <p>鼠标在预览图上拖拽框选水印区域，OpenCV Inpainting 智能修复，效果自然无痕。</p>
+        <div class="feature-tags"><span>框选区域</span><span>智能修复</span><span>图片/视频</span></div>
       </div>
-      <h3>音频处理</h3>
-      <p>音频格式转换、效果器（均衡器/混响/变速）、波形可视化，满足音频创作需求。</p>
-      <div class="feature-tags"><span>格式转换</span><span>效果器</span><span>波形显示</span></div>
     </div>
+  </div>
 
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#EEF1FE">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4F6EF7" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+  <!-- PDF -->
+  <div class="feat-group">
+    <div class="feat-group-title">PDF 全能处理</div>
+    <div class="features-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF1F2">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <h3>批量处理</h3>
+        <p>合并多个PDF、按页数拆分、提取指定页面、删除页面、旋转页面，全部支持批量。</p>
+        <div class="feature-tags"><span>合并</span><span>拆分</span><span>提取页</span><span>旋转</span></div>
       </div>
-      <h3>压缩解压</h3>
-      <p>支持 ZIP/RAR/7Z 等主流格式，批量压缩解压，支持加密压缩包。</p>
-      <div class="feature-tags"><span>ZIP</span><span>RAR</span><span>7Z</span><span>加密</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#F0FDF4">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF1F2">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>OCR 文字识别 <span class="new-badge">NEW</span></h3>
+        <p>扫描版PDF提取文字，支持中文简体/繁体/英文/日文/韩文，本地识别不上传。</p>
+        <div class="feature-tags"><span>中英文</span><span>本地识别</span><span>多语言</span></div>
       </div>
-      <h3>文件隐写</h3>
-      <p>将文件隐藏在图片中，支持加密保护，隐写后图片外观不变。</p>
-      <div class="feature-tags"><span>图片隐写</span><span>加密保护</span></div>
-    </div>
-
-    <div class="feature-card">
-      <div class="feature-icon" style="background:#FFF7ED">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF1F2">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h3>格式转换</h3>
+        <p>PDF转Word/Excel/图片/文本，图片转PDF，保留原始排版，批量处理。</p>
+        <div class="feature-tags"><span>转Word</span><span>转Excel</span><span>转图片</span><span>图片转PDF</span></div>
       </div>
-      <h3>音频效果器</h3>
-      <p>专业音频效果处理，支持均衡器、混响、降噪、变速变调等多种效果。</p>
-      <div class="feature-tags"><span>均衡器</span><span>混响</span><span>降噪</span><span>变调</span></div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF1F2">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>安全处理</h3>
+        <p>批量加密/解密，添加文字水印，权限设置（禁止打印/复制/编辑）。</p>
+        <div class="feature-tags"><span>加密解密</span><span>添加水印</span><span>权限控制</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFF1F2">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <h3>批量优化</h3>
+        <p>去水印（移除注释层）、去黑边/白边、压缩优化，批量重命名，批量打印。</p>
+        <div class="feature-tags"><span>去水印</span><span>去黑边</span><span>压缩</span><span>批量打印</span></div>
+      </div>
     </div>
+  </div>
 
+  <!-- 文档 -->
+  <div class="feat-group">
+    <div class="feat-group-title">文档处理</div>
+    <div class="features-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F0F9FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+        </div>
+        <h3>Word/Excel/PPT 处理</h3>
+        <p>格式转换、内容提取、批量合并拆分，轻松应对日常办公需求。</p>
+        <div class="feature-tags"><span>Word</span><span>Excel</span><span>PPT</span><span>格式转换</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F0F9FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>密码移除 <span class="new-badge">NEW</span></h3>
+        <p>Word只读模式破解、Excel密码移除、PPT密码解除、PDF编辑密码解除。</p>
+        <div class="feature-tags"><span>Word</span><span>Excel</span><span>PPT</span><span>PDF</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F0F9FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0EA5E9" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>批量文档脱敏 <span class="new-badge">NEW</span></h3>
+        <p>批量去除手机号、身份证、姓名、地址等隐私信息，Word/Excel/PPT/PDF 全支持。</p>
+        <div class="feature-tags"><span>去手机号</span><span>去身份证</span><span>去姓名</span><span>批量处理</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 音频/视频 -->
+  <div class="feat-group">
+    <div class="feat-group-title">音频 / 视频</div>
+    <div class="features-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFFBEB">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <h3>音频处理</h3>
+        <p>音频格式转换、剪辑合并、音量调整、淡入淡出，支持 MP3/WAV/FLAC 等格式。</p>
+        <div class="feature-tags"><span>格式转换</span><span>剪辑合并</span><span>音量调整</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FFFBEB">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        </div>
+        <h3>音频效果器</h3>
+        <p>压缩器/限制器/噪声门，静音片段自动删除，批量编辑ID3元数据标签。</p>
+        <div class="feature-tags"><span>压缩器</span><span>去静音</span><span>元数据</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#F0FDF4">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <h3>一键视频剪辑 <span class="new-badge">NEW</span></h3>
+        <p>智能检测说话间隙自动剪辑（不在句中剪断），或按固定时长切割，批量导出分集。</p>
+        <div class="feature-tags"><span>智能剪辑</span><span>固定时长</span><span>批量导出</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 隐私安全 -->
+  <div class="feat-group">
+    <div class="feat-group-title">隐私 & 安全</div>
+    <div class="features-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FDF4FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>文件加密 & 粉碎</h3>
+        <p>AES-256加密保护文件，安全粉碎（DoD标准，不可恢复），防止数据泄露。</p>
+        <div class="feature-tags"><span>AES-256</span><span>安全粉碎</span><span>不可恢复</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FDF4FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h3>照片 EXIF 擦除 <span class="new-badge">NEW</span></h3>
+        <p>批量删除照片GPS定位、拍摄时间、相机型号等元数据，发朋友圈前保护隐私。</p>
+        <div class="feature-tags"><span>去GPS</span><span>去拍摄时间</span><span>去相机型号</span></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:#FDF4FF">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+        </div>
+        <h3>文件隐写</h3>
+        <p>将文件隐藏在图片中，AES加密保护，隐写后图片外观完全不变。</p>
+        <div class="feature-tags"><span>图片隐写</span><span>AES加密</span><span>外观不变</span></div>
+      </div>
+    </div>
   </div>
 
   <div style="text-align:center;margin-top:48px;padding:32px;background:#EEF1FE;border-radius:16px">
-    <h3 style="font-size:22px;font-weight:800;margin-bottom:12px">立即体验全部功能</h3>
+    <h3 style="font-size:22px;font-weight:800;margin-bottom:12px">立即体验全部 20+ 功能</h3>
     <p style="color:#6B7280;margin-bottom:24px">内测期间注册即送1个月会员，免费使用所有功能</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="register.html" class="btn-primary btn-lg">免费注册</a>
-      <a href="#" class="btn-outline btn-lg" onclick="window.location.href='https://1858036815.v.123pan.cn/1858036815/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88/FileProcessMaster_v1.0.0_Setup.exe'">下载软件</a>
+      <a href="#" class="btn-outline btn-lg" id="dlBtn">⬇ 下载软件 v1.1.0</a>
     </div>
   </div>
 </div>
@@ -150,6 +281,14 @@
     </div>
   </div>
 </footer>
+<script>
+document.getElementById('dlBtn').onclick=function(){
+  window.location.href='https://1858036815.v.123pan.cn/1858036815/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%A4%A7%E5%B8%88/FileProcessMaster_v1.1.0_Setup.exe';
+};
+function toggleMenu(){
+  document.querySelector('.nav-links').classList.toggle('open');
+  document.querySelector('.nav-actions').classList.toggle('open');
+}
+</script>
 </body>
 </html>
-
