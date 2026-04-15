@@ -7,18 +7,23 @@
 </head>
 <body>
 <script src="auth.js"></script>
-<script src="auth.js"></script>
 <nav class="navbar">
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="favicon.ico" class="logo-icon-img" alt="logo"/><span>文件处理大师</span></a>
-    <ul class="nav-links"><li><a href="index.html">首页</a></li><li><a href="features.html">功能</a></li><li><a href="activity.html">🎁 内测活动</a></li><li><a href="suggestions.html" class="active">建议</a></li><li><a href="faq.html">帮助</a></li></ul>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="features.html">功能</a></li>
+      <li><a href="suggestions.html" class="active">建议</a></li>
+      <li><a href="faq.html">帮助</a></li>
+    </ul>
     <div class="nav-actions"><a href="login.html" class="btn-ghost">登录</a><a href="register.html" class="btn-primary">注册</a></div>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
   </div>
 </nav>
 
 <div class="page-hero">
   <h1>💡 用户建议</h1>
-  <p>你的建议让软件变得更好，被采纳的建议奖励7天会员</p>
+  <p>你的建议让软件变得更好，欢迎提交任何想法</p>
 </div>
 
 <div class="page-content">
@@ -37,7 +42,7 @@
     <div id="s-error" style="color:#EF4444;font-size:13px;margin:8px 0;display:none"></div>
     <div id="s-success" style="color:#10B981;font-size:13px;margin:8px 0;display:none"></div>
     <button class="btn-primary" style="margin-top:12px" onclick="submitSuggestion()">提交建议</button>
-    <span style="font-size:12px;color:#9CA3AF;margin-left:12px">被采纳奖励7天会员</span>
+    <span style="font-size:12px;color:#9CA3AF;margin-left:12px">感谢你的反馈</span>
   </div>
 
   <!-- 建议列表 -->
